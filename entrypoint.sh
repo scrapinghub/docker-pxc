@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [[ ${PXC_CFGFILE} ]]; then
-  cp ${PXC_CFGFILE} /etc/mysql/conf.d
+  cp -v ${PXC_CFGFILE} /etc/mysql/percona-xtradb-cluster.conf.d/
 fi
 
 PIDFILE=${PIDFILE:-/var/run/mysqld/mysqld.pid}
-LOGFILE=${LOGFILE:-/var/log/mysql/error.log}
+LOGFILE=${LOGFILE:-/var/log/pxc/*.log}
 
 case ${1} in
   start|bootstrap-pxc)
